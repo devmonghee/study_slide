@@ -37,8 +37,6 @@ const NewsCard = styled.div`
 `;
 const NewsImage = styled.img`
   height: 300px;
-  width: 310px;
-  background-size: cover;
 `;
 const NewsSection = styled.div`
   display: flex;
@@ -149,11 +147,7 @@ function NewsSlider() {
                   transition={{ type: "tween" }}
                 >
                   <NewsCard>
-                    <NewsImage
-                      key={news.id}
-                      src={`assets/news/${news.title}.jpg`}
-                      alt={`${news.title}`}
-                    />
+                    <NewsImage />
                     <NewsSection>
                       <DecoBox />
                       <NewsContent>
