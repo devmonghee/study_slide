@@ -1,0 +1,99 @@
+{
+  "categories": [
+    { "id": 1, "category": "수상" },
+    { "id": 2, "category": "인증" },
+    { "id": 3, "category": "협약" }
+  ],
+  "images": [
+    {
+      "id": 1,
+      "category": "수상",
+      "title": "전라남도지사상_공공데이터공모전_20210924_ps",
+      "isDone": false
+    },
+    {
+      "id": 2,
+      "category": "수상",
+      "title": "AI 테스트 베드 코리아_사회상(중기청장상)_20211112_ps",
+      "isDone": false
+    },
+    {
+      "id": 3,
+      "category": "수상",
+      "title": "2021 순천 창업아이디어 경진대회 대상_순천시장상_20211206_ps",
+      "isDone": false
+    },
+    {
+      "id": 4,
+      "category": "수상",
+      "title": "호남권_2021 엑셀러레이팅 IR 프로그램_청장상_20211020_ps",
+      "isDone": false
+    },
+    {
+      "id": 5,
+      "category": "인증",
+      "title": "인공지능_AI인증서(오든)_ps",
+      "isDone": false
+    },
+    {
+      "id": 6,
+      "category": "인증",
+      "title": "신용보증기금_OPEN NEST 200 선정서_20211210_ps",
+      "isDone": false
+    },
+    {
+      "id": 7,
+      "category": "인증",
+      "title": "경영혁신형(Main-biz) 중소기업 확인서_20211014_ps",
+      "isDone": false
+    },
+    {
+      "id": 8,
+      "category": "인증",
+      "title": "벤처기업확인서_오든_20210402_ps",
+      "isDone": false
+    },
+    {
+      "id": 9,
+      "category": "인증",
+      "title": "오든_기업부설연구소 인정서_20210721_ps",
+      "isDone": false
+    },
+    {
+      "id": 10,
+      "category": "인증",
+      "title": "ISO9001 인증서_주식회사 오든_ps",
+      "isDone": false
+    },
+    {
+      "id": 11,
+      "category": "인증",
+      "title": "ISO14001 인증서_주식회사 오든_ps",
+      "isDone": false
+    },
+    {
+      "id": 12,
+      "category": "인증",
+      "title": "직무발명보상 우수기업 인증서_오든_20210318_ps",
+      "isDone": false
+    },
+    {
+      "id": 13,
+      "category": "협약",
+      "title": "광주광역시_업무협약서_20220323_ps",
+      "isDone": false
+    },
+    {
+      "id": 14,
+      "category": "협약",
+      "title": "전라남도_순천시_지식정보문화사업_투자협약서_202111_ps",
+      "isDone": false
+    },
+    {
+      "id": 15,
+      "category": "협약",
+      "title": "(주)오든_업무협약서_사단법인 한국융합인재교육협회_ps",
+      "isDone": false
+    }
+  ]
+}
