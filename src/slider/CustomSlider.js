@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styled from "styled-components";
 
 import Title from "../components/Title";
@@ -15,21 +15,15 @@ const Slider = styled.div`
 `;
 const Items = styled(motion.ul)`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   gap: 20px;
   position: absolute;
   margin: 10px;
 `;
 const Item = styled(motion.li)`
   background-color: white;
-  width: 320px;
-  height: 450px;
-  &:first-child {
-    transform-origin: center left;
-  }
-  &:last-child {
-    transform-origin: center right;
-  }
+  width: 500px;
+  height: 400px;
 `;
 
 const NewsCard = styled.div`
@@ -68,7 +62,7 @@ const NewsDetail = styled.div`
 
 const ItemsVariants = {
   entry: (back) => ({
-    x: back ? -window.outerWidth : window.outerWidth,
+    x: back ? -500 : 500,
   }),
 
   center: {
@@ -76,7 +70,7 @@ const ItemsVariants = {
   },
   exit: (back) => {
     return {
-      x: back ? window.outerWidth : -window.outerWidth,
+      x: back ? 700 : -700,
     };
   },
 };
@@ -96,26 +90,23 @@ const ItemVariants = {
   },
 };
 
-const offset = 3;
-
-function NewsSlider() {
+function CustomSlider() {
   const [index, setIndex] = useState(0);
   const [leaving, setLeaving] = useState(false);
   const [back, setBack] = useState(false);
   const incraseIndex = (e) => {
-    const totalImage = newsData.news.length;
+    const totalIndex = newsData.news.length - 1;
     const currentIndex = Math.sign(e.deltaY);
-    const maxIndex = Math.ceil(totalImage / offset) - 1;
+
     if (leaving) return;
     toggleLeaving();
     if (currentIndex === 1) {
       setBack(false);
-      setIndex((prev) => (prev === maxIndex ? 0 : prev + currentIndex));
+      setIndex((prev) => (prev === totalIndex ? 0 : prev + currentIndex));
     } else if (currentIndex === -1) {
       setBack(true);
-      setIndex((prev) => (prev === 0 ? maxIndex : prev + currentIndex));
+      setIndex((prev) => (prev === 0 ? totalIndex : prev + currentIndex));
     }
-    console.log(maxIndex);
   };
 
   const toggleLeaving = () => setLeaving((prev) => !prev);
@@ -129,47 +120,38 @@ function NewsSlider() {
           onExitComplete={toggleLeaving}
           custom={back}
         >
-          <Items
-            custom={back}
-            key={index}
-            variants={ItemsVariants}
-            initial="entry"
-            animate="center"
-            exit="exit"
-            transition={{ type: "tween", duration: 1 }}
-          >
-            {newsData.news
-              .slice(offset * index, offset * index + offset)
-              .map((news) => (
-                <Item
-                  key={news.id}
-                  variants={ItemVariants}
-                  initial="normal"
-                  whileHover="hover"
-                  transition={{ type: "tween" }}
-                >
-                  <NewsCard>
-                    <NewsImage
-                      key={news.id}
-                      src={`assets/news/${news.title}.jpg`}
-                      alt={`${news.title}`}
-                    />
-                    <NewsSection>
-                      <DecoBox />
-                      <NewsContent>
-                        <NewsTitle>{`${news.title.substring(
-                          0,
-                          40
-                        )}...`}</NewsTitle>
-                        <NewsDetail>{`${news.content.substring(
-                          0,
-                          70
-                        )}...`}</NewsDetail>
-                      </NewsContent>
-                    </NewsSection>
-                  </NewsCard>
-                </Item>
-              ))}
+          <Items custom={back} key={index}>
+            {newsData.news.slice(index).map((news) => (
+              <Item
+                key={news.id}
+                variants={ItemsVariants}
+                initial="entry"
+                animate="center"
+                exit="exit"
+                transition={{ type: "tween", duration: 1 }}
+              >
+                <NewsCard>
+                  <NewsImage
+                    key={news.id}
+                    src={`assets/news/${news.title}.jpg`}
+                    alt={`${news.title}`}
+                  />
+                  <NewsSection>
+                    <DecoBox />
+                    <NewsContent>
+                      <NewsTitle>{`${news.title.substring(
+                        0,
+                        40
+                      )}...`}</NewsTitle>
+                      <NewsDetail>{`${news.content.substring(
+                        0,
+                        70
+                      )}...`}</NewsDetail>
+                    </NewsContent>
+                  </NewsSection>
+                </NewsCard>
+              </Item>
+            ))}
           </Items>
         </AnimatePresence>
       </Slider>
@@ -177,4 +159,4 @@ function NewsSlider() {
   );
 }
 
-export default NewsSlider;
+export default CustomSlider;

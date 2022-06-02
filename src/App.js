@@ -4,13 +4,14 @@ import Header from "./components/Header";
 
 import CertificateSlider from "./Routes/CertificateSlider";
 import NewsSlider from "./Routes/NewsSlider";
+import CustomSlider from "./slider/CustomSlider";
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
 `;
 const InnerContainer = styled.div`
-  width: 1025px;
+  width: 1325px;
 `;
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
     <Container>
       <InnerContainer>
         <Header />
-        <NewsSlider />
+        <CustomSlider />
       </InnerContainer>
     </Container>
   );
